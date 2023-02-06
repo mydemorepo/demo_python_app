@@ -1,8 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-   <body>
-   
-      <h1>{{ data }}!</h1>
-      
-   </body>
+<head>
+<meta charset="UTF-8">
+<title>Demo Python App</title>
+<link rel="shortcut icon"
+	href="{{ url_for('static',filename='images/database.png') }}"
+	type="image/png">
+<link rel="stylesheet" type="text/css"
+	href="{{ url_for('static',filename='styles/main.css') }}" />
+</head>
+<body>
+	<div id="header">Header</div>
+	<div id="leftSidebar">
+		<h1>Tables</h1>
+		{% for table in tables_list %}
+		<p>(<a href="/{{ table['Tables_in_classicmodels'] }}">{{ table['Tables_in_classicmodels'].capitalize() }}</a>)</p>
+		{% endfor %}
+	</div>
+	<div id="main">Main {{table_name}}</div>
+	<div id="rightSidebar">RightSidebar</div>
+	<div id="footer">Footer</div>
+</body>
 </html>
