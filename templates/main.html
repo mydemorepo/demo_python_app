@@ -15,7 +15,7 @@
 		<h1>Tables</h1>
 		{% for table in tables_list %} {% for colum_name in table %}
 		<p>
-			<a href="/{{ table['Tables_in_classicmodels'] }}">{{
+			<a href="/{{ table[colum_name] }}">{{
 				table[colum_name].capitalize() }}</a>
 		</p>
 		{% endfor %} {% endfor %}
