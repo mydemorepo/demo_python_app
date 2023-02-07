@@ -1,13 +1,18 @@
 from flask import *
 from services.mysqldb import mysqldb
+from services.sqllitedb import sqllitedb
 app = Flask(__name__)
 
+
 mysql_db = mysqldb.MysqlDb("localhost", "root", "root", "classicmodels",)
+sqllite_db = sqllitedb.SqlliteDb()
+
 
 @app.route('/')
 def index():
     tables_list = mysql_db.get_result("SHOW TABLES")
-    return render_template('main.html', tables_list=tables_list)
+    tables_listlite = sqllite_db.get_result("select * from employees")
+    return render_template('main.html', tables_list=tables_list, tables_listlite = tables_listlite)
 
 @app.route('/<table_name>')
 def tables(table_name):
