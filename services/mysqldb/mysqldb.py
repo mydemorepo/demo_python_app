@@ -21,4 +21,18 @@ class MysqlDb():
         data = cursor.fetchall()
         db.close()
         return data
+    
+    def get_tables(self):
+        db = pymysql.connect(host=self.host,
+                             user=self.user,
+                             password=self.password,
+                             database=self.db_name,
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+        cursor = db.cursor()
+        cursor.execute("SHOW TABLES")
+        data = cursor.fetchall()
+        db.close()
+        return data
+
 
