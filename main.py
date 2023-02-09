@@ -3,6 +3,8 @@ from services.mysqldb import mysqldb
 from services.sqllitedb import sqllitedb
 from services.jsonbuilder import jsonbuilder
 from services.xmlbuilder import xmlbuilder
+from services.csvbuilder import csvbuilder
+import os
 
 app = Flask(__name__)
 
@@ -16,6 +18,7 @@ app = Flask(__name__)
 db = sqllitedb.SqlliteDb("sampledatabase.sqlite")
 jb = jsonbuilder.JsonBuilder()
 xb = xmlbuilder.XmlBuilder()
+csvb = csvbuilder.CsvFileBuilder()
 
 
 @app.route('/')
@@ -28,7 +31,7 @@ def index():
 def tables(table_name):
     tables_list = db.get_tables()
     table = db.get_result(f"SELECT * FROM {table_name}")
-    return render_template('tables.html', tables_list=tables_list, table=table)
+    return render_template('tables.html', tables_list=tables_list, table=table, table_name = table_name)
 
 
 @app.route('/api/json')
@@ -50,6 +53,16 @@ def xml_index():
 def xml_tables(table_name): 
     return xb.get_xml(db.get_tables(), table_name, db.get_result(f"SELECT * FROM {table_name}"))
 
+
+@app.route('/download/<table_name>')
+def download(table_name):
+    csvb.get_csv(db.get_result(f"SELECT * FROM {table_name}"), table_name)
+    path = os.path.join(app.root_path, 'downloads', f'{table_name}.csv')
+    return send_file(path, as_attachment=True)
+
+@app.route('/sendemail/<table_name>')
+def send_email(table_name):
+    return f'<a href="/{table_name}">Email {table_name} done! Go home.</a>'
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)

@@ -10,7 +10,17 @@
 	href="{{ url_for('static',filename='styles/main.css') }}" />
 </head>
 <body>
-	<div id="header">Header</div>
+	<div id="header">
+		<p>
+			<a href="/download/{{ table_name }}">Save result</a>
+		</p>
+		<p>
+			<a href="/sendemail/{{ table_name }}">Send to Email</a>
+		</p>
+		<p>
+			<a href="/">Go home.</a>
+		</p>
+	</div>
 	<div id="leftSidebar">
 		<h1>Tables</h1>
 		{% for table in tables_list %} {% for colum_name in table %}
