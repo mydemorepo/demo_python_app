@@ -13,10 +13,18 @@ class SqlliteDb():
         cursor.execute(query_string)
         data = cursor.fetchall()
         
-        cursor.execute(f'PRAGMA table_info({query_string.split()[-1]})')
-        column_info = cursor.fetchall()
-        db.close()
-        
+        column_info=[]
+        if  query_string.find('*') != -1:
+            cursor.execute(f'PRAGMA table_info({query_string.split()[-1]})')
+            column_info = cursor.fetchall()
+            db.close()
+        else:
+            for column_name in query_string.split()[1:-2]:
+                if column_name.find(',') != -1:
+                    column_info.append(('column_name', column_name[0:-1]))
+                else:
+                    column_info.append(('column_name', column_name))
+                                  
         table_content = []
         for line in data:
             line_dict = {}

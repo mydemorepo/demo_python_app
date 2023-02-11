@@ -15,9 +15,6 @@
 			<a href="/download/{{ table_name }}">Save result</a>
 		</p>
 		<p>
-			<a href="/sendemail/{{ table_name }}">Send to Email</a>
-		</p>
-		<p>
 			<a href="/">Go home.</a>
 		</p>
 	</div>
@@ -49,7 +46,18 @@
 			<tbody>
 		</table>
 	</div>
-	<div id="rightSidebar">RightSidebar</div>
+	<div id="rightSidebar">
+		<h1>Сolumns</h1>
+		<form action="/{{ table_name }}" method="post">
+			{% for colum_name in table[0] %} <input
+				id="{{ colum_name }}" type="checkbox" name="{{ colum_name }}"> <label
+				for="{{ colum_name }}">{{colum_name.capitalize() }}</label> <br> {% endfor
+			%}
+			<p>
+				<input type="submit" value="Show" />
+			</p>
+		</form>
+	</div>
 	<div id="footer">Footer</div>
 </body>
 </html>
