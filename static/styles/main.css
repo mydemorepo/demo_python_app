@@ -2,6 +2,7 @@
 
 body {
   height: 100vh;
+  background-color: rgb(217, 255, 253);
 }
 
 #header {
@@ -11,7 +12,7 @@ body {
 	margin-right: 1%;
 	border: 1px solid black;
 	font-size: 20px;
-	background-color: #ccc;
+	background-color: rgb(187, 196, 255);
 }
 
 #leftSidebar {
@@ -21,7 +22,7 @@ body {
 	margin: 1%;
 	border: 1px solid black;
 	font-size: 20px;
-	background-color: #ff80ff;
+	background-color: rgb(255, 255, 210);
 	float: left;
 }
 
@@ -32,7 +33,7 @@ body {
 	margin: 1%;
 	border: 1px solid black;
 	font-size: 20px;
-	background-color: #eee;
+	background-color: rgb(197, 251, 189);
 	float: left;
 	overflow: scroll
 }
@@ -44,7 +45,7 @@ body {
 	margin: 1%;
 	border: 1px solid black;
 	font-size: 20px;
-	background-color: #ff80ff;
+	background-color: rgb(255, 255, 210);
 	float: left;
 }
 
@@ -53,6 +54,6 @@ body {
 	margin: 1%;
 	border: 1px solid black;
 	font-size: 20px;
-	background-color: #ccc;
+	background-color: rgb(187, 196, 255);
 	clear: both;
 }

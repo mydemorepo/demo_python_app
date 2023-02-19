@@ -1,13 +1,21 @@
 import json
 
 
+# Об'єкт класу MysqlDb використовується для 
+# перетворення вхідних данних в JSON формат.
 class JsonBuilder():
     
-    
+# Функція приймає список параметрів, якщо параметр один,
+# то це список словників якиї містить імена таблиць, 
+# якщо параметрів більше, то перший параметр це список словників 
+# який містить імена таблиць, другий - назва таблиці, 
+# третій -то це список словників якиї містить дані з таблиці. 
+# Передаючи default=str в функцію json.dumps, вказуємо що типи 
+# даних з бази даних які не підтримує формат JSON біли перетворені в рядки. 
     def get_json(self, *args):
-        if (len(args) ==1):
-            return json.dumps({'tables':args[0]})
+        if (len(args) == 1):
+            return json.dumps({'tables':args[0]}, default=str)
         else:
-            return json.dumps({'tables':args[0], args[1]:args[2]})
+            return json.dumps({'tables':args[0], args[1]:args[2]}, default=str)
         
         

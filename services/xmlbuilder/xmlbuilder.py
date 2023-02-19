@@ -1,6 +1,11 @@
 import xml.etree.ElementTree as ET
 
 
+# Функція для перетворення данних ц форматі XML у читабельний 
+# вид при використанні функції print(). Взято тут:
+# https://ru.stackoverflow.com/questions/1064514/%D0%9A%D0%B0%D0%BA-
+# %D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-xml-%D0%BD%D0%B0-python-
+# %D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-xml-etree-elementtree
 def indent(elem, level=0):
     i = "\n" + level * "  "
     if len(elem):
@@ -17,8 +22,16 @@ def indent(elem, level=0):
             elem.tail = i
 
 
+# Об'єкт класу MysqlDb використовується для 
+# перетворення вхідних данних в XML формат.
 class XmlBuilder():
-    
+
+# Функція приймає список параметрів, якщо параметр один,
+# то це список словників якиї містить імена таблиць, 
+# якщо параметрів більше, то перший параметр це список словників 
+# який містить імена таблиць, другий - назва таблиці, 
+# третій -то це список словників якиї містить дані з таблиці. 
+  
     def get_xml(self, *args):
         if(len(args) == 1):
             root = ET.Element("data")
