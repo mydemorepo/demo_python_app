@@ -32,33 +32,18 @@
 │   ├── csvbuilder                           - Пакет для створення файлу в форматі CSV 
 │   │   ├── csvbuilder.py                     
 │   │   ├── __init__.py
-│   │   └── __pycache__
-│   │       ├── csvbuilder.cpython-36.pyc
-│   │       └── __init__.cpython-36.pyc
 │   ├── jsonbuilder                          - Пакет для перетворення вхідних данних в формат JSON
 │   │   ├── __init__.py
 │   │   ├── jsonbuilder.py
-│   │   └── __pycache__
-│   │       ├── __init__.cpython-36.pyc
-│   │       └── jsonbuilder.cpython-36.pyc
 │   ├── mysqldb                              - Пакет для використання СУБД MySQL
 │   │   ├── __init__.py
 │   │   ├── mysqldb.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-36.pyc
-│   │   │   └── mysqldb.cpython-36.pyc
 │   │   └── sampledatabase.sql
 │   ├── sqllitedb                            - Пакет для використання СУБД SQLite (використовується в проєкті за замовчуванням)
 │   │   ├── __init__.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-36.pyc
-│   │   │   └── sqllitedb.cpython-36.pyc
 │   │   └── sqllitedb.py
 │   └── xmlbuilder                           - Пакет для перетворення вхідних данних в формат XML
 │       ├── __init__.py
-│       ├── __pycache__
-│       │   ├── __init__.cpython-36.pyc
-│       │   └── xmlbuilder.cpython-36.pyc
 │       └── xmlbuilder.py
 ├── static                                   - Статичні файли які використовуються у проєкті
 │   ├── images
